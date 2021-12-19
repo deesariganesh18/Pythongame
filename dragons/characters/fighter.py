@@ -2,13 +2,15 @@ class Fighter:
     """A Fighter, the base class of Dragon and Terminator, has armor and a Place."""
     is_dragon = False
     damage = 0
-
+    is_watersafe = False
+    name = 'Ki'
     # ADD CLASS ATTRIBUTES HERE
 
     def __init__(self, armor, place=None):
         """Create a Fighter with an ARMOR amount and a starting PLACE."""
         self.armor = armor
-        self.place = place  # set by Place.add_fighter and Place.remove_fighter
+        self.place = place 
+        #self.name = name # set by Place.add_fighter and Place.remove_fighter
 
     def reduce_armor(self, amount):
         """Reduce armor by AMOUNT, and remove the fighter from its place if it
