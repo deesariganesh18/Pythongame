@@ -8,7 +8,8 @@ class FireDragon(Dragon):
     damage = 3
     # OVERRIDE CLASS ATTRIBUTES HERE
     # BEGIN 2.2
-    implemented = False  # Change to True to view in the GUI
+    implemented = True
+    food_cost = 5  # Change to True to view in the GUI
 
     # END 2.2
 
@@ -25,3 +26,14 @@ class FireDragon(Dragon):
         """
         # BEGIN 2.2
         "*** YOUR CODE HERE ***"
+        self.armor = self.armor -  amount
+        s = self.place
+        l = [i for i in s.terminators]
+        if self.armor > 0:
+            for i in l:
+                i.reduce_armor(amount)
+        elif self.armor <= 0:
+            for i in l:
+                i.reduce_armor(self.damage + amount)
+            self.place.remove_fighter(self)
+            self.death_callback()
