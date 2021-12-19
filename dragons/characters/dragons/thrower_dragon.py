@@ -23,6 +23,7 @@ class ThrowerDragon(Dragon):
         # BEGIN 1.3 and 2.1
         #return random_or_none(self.place.terminators)  # REPLACE THIS LINE
         # END 1.3 and 2.1
+        sai = 1
         temp = self.place
         a = self.min_range
         b = self.max_range
