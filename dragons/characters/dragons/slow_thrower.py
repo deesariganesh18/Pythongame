@@ -7,8 +7,11 @@ class SlowThrower(ThrowerDragon):
 
     name = 'Slow'
     # BEGIN 4.4
-    implemented = False  # Change to True to view in the GUI
-
+    implemented = True # Change to True to view in the GUI
+    damage = 0
+    food_cost = 4
+    def action(self, colony):
+        super().action(colony)
     # END 4.4
 
     def throw_at(self, target):

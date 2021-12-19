@@ -8,11 +8,11 @@ class ThrowerDragon(Dragon):
     name = 'Thrower'
     implemented = True
     damage = 1
+
+    # ADD/OVERRIDE CLASS ATTRIBUTES HERE
     food_cost = 3
     min_range = 0
     max_range = 100000
-
-    # ADD/OVERRIDE CLASS ATTRIBUTES HERE
 
     def nearest_terminator(self, skynet):
         """Return the nearest Terminator in a Place that is not the SKYNET, connected to
@@ -21,13 +21,17 @@ class ThrowerDragon(Dragon):
         This method returns None if there is no such Terminator (or none in range).
         """
         # BEGIN 1.3 and 2.1
-        #return random_or_none(self.place.terminators)  # REPLACE THIS LINE
-        # END 1.3 and 2.1
-        sai = 1
+        # REPLACE THIS LINE
+
+
+        
         temp = self.place
         a = self.min_range
         b = self.max_range
-        
+        """
+       
+
+        """
         if a is not None:
             for i in range(a):
                 temp=temp.entrance
@@ -44,8 +48,9 @@ class ThrowerDragon(Dragon):
                 else:
         
                     temp=temp.entrance
-
-
+        
+        # END 1.3 and 2.1
+        
     def throw_at(self, target):
         """Throw a stone at the TARGET Terminator, reducing its armor."""
         if target is not None:

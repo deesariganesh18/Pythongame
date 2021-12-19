@@ -8,9 +8,11 @@ class LongThrower(ThrowerDragon):
     food_cost = 2
     # OVERRIDE CLASS ATTRIBUTES HERE
     # BEGIN 2.1
-    implemented = True  # Change to True to view in the GUI
-    # END 2.1
+    implemented = True
     min_range = 5
     max_range = float('inf')
     #a = dimension[2]
     damage = 1
+
+    # Change to True to view in the GUI
+    # END 2.1

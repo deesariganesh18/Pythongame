@@ -9,13 +9,11 @@ class HungryDragon(Dragon):
     name = 'Hungry'
     # OVERRIDE CLASS ATTRIBUTES HERE
     # BEGIN 2.3
-    implemented = True  
+    implemented = True  # Change to True to view in the GUI
     damage = 1
     food_cost = 4
     # END 2.3
-    time_to_digest = 3# Change to True to view in the GUI
-
-    # END 2.3
+    time_to_digest = 3
 
     def __init__(self, armor=1):
         # BEGIN 2.3

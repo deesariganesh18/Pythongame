@@ -10,11 +10,20 @@ class ContainerDragon(Dragon):
     def can_contain(self, other):
         # BEGIN 3.2
         "*** YOUR CODE HERE ***"
+        if other.contained_dragon is None and other.is_container == False:
+            return True
+        else:
+            return False
         # END 3.2
 
     def contain_dragon(self, dragon):
         # BEGIN 3.2
         "*** YOUR CODE HERE ***"
+        if dragon is not None and self.contained_dragon is None :
+            self.contained_dragon = dragon
+        else:
+            return False
+
         # END 3.2
 
     def remove_dragon(self, dragon):
