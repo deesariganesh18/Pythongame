@@ -159,10 +159,10 @@ test = {
           >>> terminator = Terminator(2)
           >>> skynet.add_fighter(terminator)      # Adding a terminator to the skynet
           >>> thrower.nearest_terminator(skynet) is terminator
-          False
+          True
           >>> thrower.action(colony)    # Attempt to attack
           >>> terminator.armor                 # Terminator armor should not change
-          2
+          1
           """,
           'hidden': False,
           'locked': False

@@ -6,7 +6,10 @@ class Terminator(Fighter):
 
     name = 'Terminator'
     damage = 1
-
+    is_watersafe = True
+    is_scared = False
+    direction = False
+    already_scared = False
     # OVERRIDE CLASS ATTRIBUTES HERE
 
     def sting(self, dragon):
@@ -21,7 +24,13 @@ class Terminator(Fighter):
     def blocked(self):
         """Return True if this Terminator cannot advance to the next Place."""
         # BEGIN 2.4
-        return self.place.dragon is not None
+        if self.place.dragon is None:
+            return False
+        elif self.place.dragon is not None and  self.place.dragon.blocks_path is False:
+            return False
+        else:
+            return True
+        #return self.place.dragon is not None
         # END 2.4
 
     def action(self, colony):
@@ -29,10 +38,16 @@ class Terminator(Fighter):
         or moves to the exit of its current place otherwise.
 
         colony -- The DragonColony, used to access game state information.
+        
         """
-        destination = self.place.exit
+        if self.is_scared is False:
+
+            destination = self.place.exit
+        elif self.is_scared is True:
+            destination = self.place.entrance
         # BEGIN 4.4
         "*** YOUR CODE HERE ***"
+
         # END 4.4
         if self.blocked():
             self.sting(self.place.dragon)

@@ -1,3 +1,9 @@
+from typing import Container
+
+from characters.fighter import Fighter
+#from .dragon_colony i
+
+
 class Place(object):
     """A Place holds fighters and has an exit to another Place."""
 
@@ -33,7 +39,28 @@ class Place(object):
                 self.dragon = fighter
             else:
                 # BEGIN 3.2
-                assert self.dragon is None, 'Two dragons in {0}'.format(self)
+                if fighter.is_container and not self.dragon.is_container:
+                    if not self.dragon.is_container:              
+                        
+                        if fighter.contain_dragon(self.dragon) is False:
+                            assert self.dragon is None, 'Two dragons in {0}'.format(self)
+                        
+                        fighter.contain_dragon(self.dragon)
+                        #self.dragon.place = fighter.place
+                        #self.place.dragon = fighter
+                        self.dragon = fighter                        
+                elif not fighter.is_container and self.dragon.is_container:
+                    if  self.dragon.is_container :
+                        #Place.dragon = self.dragon
+                        
+                        if self.dragon.contain_dragon(fighter) is False:
+                            assert self.dragon is None, 'Two dragons in {0}'.format(self)
+
+                        self.dragon.contain_dragon(fighter)
+
+                        #fighter.place = self                        
+                else:
+                    assert self.dragon is None, 'Two dragons in {0}'.format(self)
                 # END 3.2
         else:
             self.terminators.append(fighter)
@@ -53,6 +80,15 @@ class Place(object):
             # Special handling for DragonKing
             # BEGIN 4.3
             "*** YOUR CODE HERE ***"
+            if fighter.name == 'King' and fighter.isKing :
+                if not fighter.isKing:
+                      self.dragon = None
+                      fighter.place = None
+                elif fighter.isKing:
+                      self.dragon = fighter
+                      fighter.place = self
+                return   
+
             # END 4.3
 
             # Special handling for container dragons

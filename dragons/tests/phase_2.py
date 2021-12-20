@@ -25,12 +25,12 @@ test = {
           'code': r"""
           >>> # Test LongThrower Hit
           >>> dragon = LongThrower()
-          >>> in_range = Terminator(2)
+          >>> in_range = Terminator(3)
           >>> colony.places['tunnel_0_0'].add_fighter(dragon)
           >>> colony.places["tunnel_0_5"].add_fighter(in_range)
           >>> dragon.action(colony)
           >>> in_range.armor
-          1
+          2
           """,
           'hidden': False,
           'locked': False
